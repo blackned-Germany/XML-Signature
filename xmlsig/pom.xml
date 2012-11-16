@@ -11,6 +11,16 @@
 
   <description>This is an example for Java's XML Signature API. The foundation is a straight copy of this Oracle tutorial. It reads both private key and public key from PKCS12 to sign or validate XML files.</description>
   <url>https://github.com/UrsKR/Java-XML-Signature</url>
+  <ciManagement>
+  	<system>Jenkins</system>
+  	<url>http://172.27.200.51:8080/view/3rd%20Party/job/XmlSig/</url>
+  </ciManagement>
+  <scm>
+  	<connection>scm:svn:http://bned-fusion.blackned.intern/svn/xmlsig/trunk/xmlsig</connection>
+  	<developerConnection>scm:svn:http://bned-fusion.blackned.intern/svn/xmlsig/trunk/xmlsig</developerConnection>
+  	<tag>HEAD</tag>
+  	<url>http://bned-fusion.blackned.intern/svn/xmlsig/trunk/xmlsig</url>
+  </scm>
   <build>
     <plugins>
       <plugin>
