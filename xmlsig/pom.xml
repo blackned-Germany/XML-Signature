@@ -6,7 +6,7 @@
   <groupId>de.butatopanto</groupId>
   <artifactId>xmlsig</artifactId>
   <name>Java XML Signature</name>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <packaging>bundle</packaging>
 
   <description>This is an example for Java's XML Signature API. The foundation is a straight copy of this Oracle tutorial. It reads both private key and public key from PKCS12 to sign or validate XML files.</description>
