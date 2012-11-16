@@ -22,10 +22,10 @@ import static javax.xml.crypto.dsig.XMLSignature.XMLNS;
 
 public class XmlValidator extends DomValidationOperator {
 
-    private Pkcs12KeyProvider keyProvider;
+    private PublicKey publicKey;
 
-    public XmlValidator(PrivateKeyData keyData) throws IOException, NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, CertificateException {
-        keyProvider = new Pkcs12KeyProvider(factory, keyData);
+    public XmlValidator(PublicKey publicKey) throws IOException, NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, CertificateException {
+        this.publicKey = publicKey;
     }
 
     /**
@@ -33,7 +33,7 @@ public class XmlValidator extends DomValidationOperator {
      */
     public boolean isValid(String pathToDocument) throws SignatureNotFound, MarshalException, XMLSignatureException, CertificateException, IOException, SAXException, ParserConfigurationException {
         Document document = loadDocument(pathToDocument);
-        return validateDocumentWithKey(document, keyProvider.loadPublicKey());
+        return validateDocumentWithKey(document, publicKey);
     }
 
     private boolean validateDocumentWithKey(Document document, PublicKey key) throws MarshalException, XMLSignatureException {

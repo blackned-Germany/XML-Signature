@@ -1,13 +1,14 @@
 import de.butatopanto.xmlsig.PrivateKeyData;
+import de.butatopanto.xmlsig.PublicKeyData;
 import de.butatopanto.xmlsig.XmlSigner;
 import de.butatopanto.xmlsig.XmlValidator;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
-
 import java.io.File;
 import java.net.URL;
+
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -27,8 +28,8 @@ public class XmlRoundtripTest {
 
     @Before
     public void createValidatorWithKeyData() throws Exception {
-        PrivateKeyData keyData = createKeyData();
-        this.validator = new XmlValidator(keyData);
+        PublicKeyData data = new PublicKeyData(getPathToFileOnClasspath("certificate.pem"));        
+        this.validator = new XmlValidator(data.getPublicKey());
     }
 
     private PrivateKeyData createKeyData() {
